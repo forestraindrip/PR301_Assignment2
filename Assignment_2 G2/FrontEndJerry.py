@@ -9,7 +9,7 @@ from tkinter.ttk import Combobox
 class GuiInterface:
     master = tkinter.Tk()
     canvas = tkinter.Canvas(master, bg='white', width=500, height=500)
-    config = open('config.txt', "r+").read().splitlines()
+    interface_capture = []
 
     def __init__(self, SourceReader):
         self.canvas.pack(side='bottom', fill='x', expand='yes')
@@ -18,6 +18,8 @@ class GuiInterface:
 
     def init_widgets(self):
         self.master.title('TkinterGUI')
+        config = open('config.txt', "r+")
+        c = config.read().splitlines()
         width = 1200
         height = 600
         screenwidth = self.master.winfo_screenwidth()
@@ -33,21 +35,21 @@ class GuiInterface:
         self.master.selectDrawer.pack(side='left', fill='both', expand='yes')
 
         self.master.comboDrawer = Combobox(self.master, values=["DrawerJack", "DrawerKieran", "DrawerTurtleJack"])
-        self.master.comboDrawer.set(self.config[0])
+        self.master.comboDrawer.set(c[0])
         self.master.comboDrawer.pack(side='left', fill='both', expand='yes')
 
         self.master.selectParser = tkinter.Label(self.master, text="Select Parser")
         self.master.selectParser.pack(side='left', fill='both', expand='yes')
 
-        self.master.comboParser = Combobox(self.master, values=["ParserDang", "ParserJerry", "ParserJonathanV2"])
-        self.master.comboParser.set(self.config[1])
+        self.master.comboParser = Combobox(self.master, values=["ParserKC", "ParserJerry", "ParserJonathanV2"])
+        self.master.comboParser.set(c[1])
         self.master.comboParser.pack(side='left', fill='both', expand='yes')
 
         self.master.selectInterface = tkinter.Label(self.master, text="Select Interface")
         self.master.selectInterface.pack(side='left', fill='both', expand='yes')
 
         self.master.comboInterface = Combobox(self.master, values=["FrontEndJerry", "FrontEndKieran"])
-        self.master.comboInterface.set(self.config[2])
+        self.master.comboInterface.set(c[2])
         self.master.comboInterface.pack(side='left', fill='both', expand='yes')
 
         self.master.close_btn = Button(self.master, text='Exit', command=self.exit_program)
@@ -58,10 +60,12 @@ class GuiInterface:
 
         self.master.text = Text(self.master, height=27, width=32)
         self.master.text.pack(side='left', fill='both', expand='yes')
+        config.close()
 
     def draw(self):
         # print(self.text.get(1.0, "end-1c"))
         self.SourceReader.parser.parse(self.master.text.get(1.0, "end-1c"))
+        print(self.interface_capture)
 
     def exit_program(self):
         file = open('config.txt', 'w')

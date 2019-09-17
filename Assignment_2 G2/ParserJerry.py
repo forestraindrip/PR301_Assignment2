@@ -1,22 +1,11 @@
 # created by Kieran Jerry Jonathon
 from TIGr import AbstractParser
 import re
-from DrawerKieran import Drawer
-import doctest
+
 
 
 class Parser(AbstractParser):
     def parse(self, raw_source):
-        """
-        >>> d = Drawer()
-        >>> d.can_draw = True
-        >>> p = Parser(d)
-        >>> p.parse('X 100')
-        GOTO X=100
-        """
-        """hard coded parsing like this is a Bad Thing!
-            It is inflexible and has no error checking
-        """
         self.source = raw_source
         if raw_source is not '':
             command = re.findall(r'P\s+\d+|X\s+\d+|D|G|N\s+\d+|E\s+\d+|S\s+\d+|W\s+\d+|Y\s+\d+|U', self.source, re.M)
@@ -48,5 +37,3 @@ class Parser(AbstractParser):
                         self.drawer.pen_up()
 
 
-if __name__ == '__main__':
-    doctest.testmod()

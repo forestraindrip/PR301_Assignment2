@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-""" Tiny Interpreted GRaphic = TIGR
+""" Tiny Interpreted Graphic = TIGR
 Keep the interfaces defined below in your work.
  """
 

@@ -12,12 +12,14 @@ class TkinterInterface:
     window = tkinter.Tk()
     windowCanvas = tkinter.Tk()
     canvas = tkinter.Canvas(windowCanvas, width=500, height=500)
-    config = open('config.txt', "r+").read().splitlines()
+    interface_capture = ''
 
     def __init__(self, SourceReader):
         self.SourceReader = SourceReader
         self.windowCanvas.title("TK")
         self.canvas.pack()
+        config = open('config.txt', "r+")
+        c = config.read().splitlines()
         self.window.title("GUI")
         self.window.draw_btn = tkinter.Button(self.window, text="Draw", command=self.draw)
         self.window.draw_btn.grid(column=0, row=0)
@@ -29,21 +31,21 @@ class TkinterInterface:
         self.window.selectDrawer.grid(column=2, row=0)
 
         self.window.comboDrawer = Combobox(self.window, values=["DrawerJack", "DrawerKieran", "DrawerTurtleJack"])
-        self.window.comboDrawer.set(self.config[0])
+        self.window.comboDrawer.set(c[0])
         self.window.comboDrawer.grid(column=3, row=0)
 
         self.window.selectParser = tkinter.Label(self.window, text="Select Parser")
         self.window.selectParser.grid(column=4, row=0)
 
-        self.window.comboParser = Combobox(self.window, values=["ParserDang", "ParserJerry", "ParserJonathanV2"])
-        self.window.comboParser.set(self.config[1])
+        self.window.comboParser = Combobox(self.window, values=["ParserKC", "ParserJerry", "ParserJonathanV2"])
+        self.window.comboParser.set(c[1])
         self.window.comboParser.grid(column=5, row=0)
 
         self.window.selectInterface = tkinter.Label(self.window, text="Select Interface")
         self.window.selectInterface.grid(column=6, row=0)
 
         self.window.comboInterface = Combobox(self.window, values=["FrontEndJerry", "FrontEndKieran"])
-        self.window.comboInterface.set(self.config[2])
+        self.window.comboInterface.set(c[2])
         self.window.comboInterface.grid(column=7, row=0)
 
         self.window.close_btn = tkinter.Button(self.window, text="Exit", command=self.exit_program)
@@ -51,6 +53,7 @@ class TkinterInterface:
 
         self.window.toDrawLabel = tkinter.Label(self.window, text=self.toDraw)
         self.window.toDrawLabel.grid(column=1, row=1, columnspan=8)
+        config.close()
 
     def start(self):
         self.window.mainloop()
