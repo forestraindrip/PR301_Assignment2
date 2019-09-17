@@ -23,30 +23,30 @@ class Drawer(AbstractDrawer):
     # pen_num should be int
     def select_pen(self, pen_num):
         self.cursor.color(MyEnums.Pen.colours[pen_num])
-        return f'Selected pen {pen_num}'
+        print(f'Selected pen {pen_num}')
 
     def pen_down(self):
         self.cursor.pendown()
-        return 'pen down'
+        print('pen down')
 
     def pen_up(self):
         self.cursor.penup()
-        return 'pen up'
+        print('pen up')
 
         # along should be int
     def go_along(self, along):
         self.pen_up()
         self.cursor.setx(along - 250)
-        return f'GOTO X={along}'
+        print(f'GOTO X={along}')
 
         # down should be int
     def go_down(self, down):
         self.pen_up()
         self.cursor.sety(down - 250)
-        return f'GOTO X={down}'
+        print(f'GOTO X={down}')
 
         # direction and distance should be int
     def draw_line(self, direction, distance):
         self.cursor.setheading(direction + 90)
         self.cursor.forward(distance)
-        return f'drawing line of length {distance} at {direction} degrees'
+        print(f'drawing line of length {distance} at {direction} degrees')

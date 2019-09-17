@@ -23,23 +23,23 @@ class Drawer(AbstractDrawer):
 
     def select_pen(self, pen_num):
         self.colour = MyEnums.Pen.colours[pen_num]
-        return f'Selected pen {pen_num}'
+        print(f'Selected pen {pen_num}')
 
     def pen_down(self):
         self.penIsDown = True
-        return 'pen down'
+        print('pen down')
 
     def pen_up(self):
         self.penIsDown = False
-        return 'pen up'
+        print('pen up')
 
     def go_along(self, along):
         self.src_x = along
-        return f'GOTO X={along}'
+        print(f'GOTO X={along}')
 
     def go_down(self, down):
         self.src_y = down
-        return f'GOTO X={down}'
+        print(f'GOTO X={down}')
 
     def draw_line(self, direction, distance):
         if direction == 0:
@@ -63,8 +63,8 @@ class Drawer(AbstractDrawer):
             # print("src_x == " + str(self.src_x) + "/ src_y == " + str(self.src_y) + "des_x == " + str(
             # self.des_x) + "/ des_y == " + str(self.des_y))
             self.this_canvas.create_line(self.src_x, self.src_y, self.des_x, self.des_y, fill=self.colour)
-            self.test_string += f'drawing line of length {distance} at {direction} degrees'
-
+            # self.test_string += f'drawing line of length {distance} at {direction} degrees'
 
         self.src_x, self.src_y = self.des_x, self.des_y
         # print("source_x == " + str(self.src_x) + "source_y == " + str(self.src_y))
+        print(f'drawing line of length {distance} at {direction} degrees')

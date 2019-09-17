@@ -24,15 +24,15 @@ class Drawer(AbstractDrawer):
 
     def select_pen(self, pen_num):
         self.colour = MyEnums.Pen.colours[pen_num]
-        return f'Selected pen {pen_num}'
+        print(f'Selected pen {pen_num}')
 
     def pen_down(self):
         self.can_draw = True
-        return 'pen down'
+        print('pen down')
 
     def pen_up(self):
         self.can_draw = False
-        return 'pen up'
+        print('pen up')
 
     def go_along(self, along):
         self.x_pos = along
@@ -40,7 +40,7 @@ class Drawer(AbstractDrawer):
 
     def go_down(self, down):
         self.y_pos = down
-        return f'GOTO X={down}'
+        print(f'GOTO X={down}')
 
     def draw_line(self, direction, distance):
         if self.can_draw:
@@ -55,4 +55,4 @@ class Drawer(AbstractDrawer):
             #                              fill=self.colour)
             self.x_pos += new_x
             self.y_pos += new_y
-            return f'drawing line of length {distance} at {direction} degrees'
+            print(f'drawing line of length {distance} at {direction} degrees')
