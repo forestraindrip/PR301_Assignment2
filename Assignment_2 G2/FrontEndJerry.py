@@ -50,7 +50,7 @@ class GuiInterface:
         self.master.comboInterface.set(self.config[2])
         self.master.comboInterface.pack(side='left', fill='both', expand='yes')
 
-        self.master.close_btn = Button(self.master, text='Restart', command=self.restart_program)
+        self.master.close_btn = Button(self.master, text='Exit', command=self.exit_program)
         self.master.close_btn.pack(side='left', fill='both', expand='yes')
 
         self.master.instruction = Label(self.master, text='Please enter command:', font=('serif', 18))
@@ -63,17 +63,13 @@ class GuiInterface:
         # print(self.text.get(1.0, "end-1c"))
         self.SourceReader.parser.parse(self.master.text.get(1.0, "end-1c"))
 
-    def restart_program(self):
-        """Restarts the current program.
-        Note: this function does not return. Any cleanup action (like
-        saving data) must be done before calling this function."""
+    def exit_program(self):
         file = open('config.txt', 'w')
         file.write(self.master.comboDrawer.get() + '\n'
                    + self.master.comboParser.get() + '\n'
                    + self.master.comboInterface.get())
         file.close()
-        python = sys.executable
-        os.execl(python, python, *sys.argv)
+        self.master.destroy()
 
     def insert_text(self, row_source):
         self.master.text.insert('0.0', row_source)

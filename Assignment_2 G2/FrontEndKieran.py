@@ -46,7 +46,7 @@ class TkinterInterface:
         self.window.comboInterface.set(self.config[2])
         self.window.comboInterface.grid(column=7, row=0)
 
-        self.window.close_btn = tkinter.Button(self.window, text="Restart", command=self.restart_program)
+        self.window.close_btn = tkinter.Button(self.window, text="Exit", command=self.exit_program)
         self.window.close_btn.grid(column=8, row=0)
 
         self.window.toDrawLabel = tkinter.Label(self.window, text=self.toDraw)
@@ -55,7 +55,7 @@ class TkinterInterface:
     def start(self):
         self.window.mainloop()
 
-    def restart_program(self):
+    def exit_program(self):
         """Restarts the current program.
         Note: this function does not return. Any cleanup action (like
         saving data) must be done before calling this function."""
@@ -64,8 +64,7 @@ class TkinterInterface:
                    + self.window.comboParser.get() + '\n'
                    + self.window.comboInterface.get())
         file.close()
-        python = sys.executable
-        os.execl(python, python, *sys.argv)
+        self.window.destroy()
 
     def draw(self):
         self.SourceReader.parser.parse(self.toDraw)
