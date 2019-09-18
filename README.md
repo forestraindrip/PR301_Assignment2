@@ -23,4 +23,4 @@ The program is fully functional now
 
 ## Tasks for tester
 - Write unit tests
-- Evaluate of coder's codes
+- Evaluate coder's codes
