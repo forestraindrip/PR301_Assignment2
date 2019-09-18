@@ -4,13 +4,17 @@ from TIGr import AbstractDrawer
 
 
 class Drawer(AbstractDrawer):
-    config = open('config.txt', "r+").read().splitlines()
-    if config[2] == 'FrontEndKieran':
+    config = open('config.txt', "r+")
+    c = config.read().splitlines()
+    if c[2] == 'FrontEndKieran':
         from FrontEndKieran import TkinterInterface
         this_canvas = TkinterInterface.canvas
-    elif config[2] == 'FrontEndJerry':
+        model_capture = TkinterInterface.interface_capture
+    elif c[2] == 'FrontEndJerry':
         from FrontEndJerry import GuiInterface
         this_canvas = GuiInterface.canvas
+        model_capture = GuiInterface.interface_capture
+    config.close()
 
     def __init__(self):
         self.colour = ''
