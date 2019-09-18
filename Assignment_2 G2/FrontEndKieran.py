@@ -75,4 +75,3 @@ class TkinterInterface:
         self.importedFile = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select file",
                                                        filetypes=(("txt files", "*.txt"), ("all files", "*.*")))
         self.toDraw = open(self.importedFile, "r+").read()
-

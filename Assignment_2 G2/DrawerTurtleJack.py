@@ -5,7 +5,6 @@ from TIGr import AbstractDrawer
 
 
 class Drawer(AbstractDrawer):
-
     config = open('config.txt', "r+").read().splitlines()
     if config[2] == 'FrontEndKieran':
         from FrontEndKieran import TkinterInterface
