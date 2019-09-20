@@ -13,11 +13,9 @@ class Drawer(AbstractDrawer):
     if c[2] == 'FrontEndKieran':
         from FrontEndKieran import TkinterInterface
         this_canvas = TkinterInterface.canvas
-        model_capture = TkinterInterface.interface_capture
     elif c[2] == 'FrontEndJerry':
         from FrontEndJerry import GuiInterface
         this_canvas = GuiInterface.canvas
-        model_capture = GuiInterface.interface_capture
     config.close()
 
     def __init__(self):
