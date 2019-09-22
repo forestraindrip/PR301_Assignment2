@@ -14,7 +14,7 @@ class ParserJerry(AbstractParser):
         >>> d = DrawerKieran(canvas)
         >>> d.can_draw = True
         >>> p = ParserJerry(d)
-        >>> p.parse(["X 100"])
+        >>> p.parse("X 100")
         GOTO X=100
         """
         self.source = raw_source

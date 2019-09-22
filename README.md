@@ -35,6 +35,6 @@ in parser_jerry.py
     >>> d = DrawerKieran(canvas)
     >>> d.can_draw = True
     >>> p = ParserJerry(d)
-    >>> p.parse(["X 100"])
+    >>> p.parse("X 100")
     GOTO X=100
     """
