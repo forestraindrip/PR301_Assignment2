@@ -2,7 +2,6 @@
 from tigr import AbstractParser
 import re
 
-
 class ParserJonathon(AbstractParser):
     def __init__(self, drawer):
         super().__init__(drawer)

@@ -33,8 +33,7 @@ in parser_jerry.py
     >>> canvas = tkinter.Canvas(tkinter.Tk(), width=500, height=500)
     >>> from drawer_kieran import DrawerKieran
     >>> d = DrawerKieran(canvas)
-    >>> d.can_draw = True
     >>> p = ParserJerry(d)
-    >>> p.parse("X 100")
+    >>> p.parse(["X 100"])
     GOTO X=100
     """

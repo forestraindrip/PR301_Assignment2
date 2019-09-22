@@ -4,7 +4,7 @@ import my_enums
 from tigr import AbstractDrawer
 
 
-class Drawer(AbstractDrawer):
+class DrawerTurtleJack(AbstractDrawer):
     config = open('config.txt', "r+").read().splitlines()
     if config[2] == 'FrontEndKieran':
         from front_end_kieran import TkinterInterface
@@ -17,6 +17,7 @@ class Drawer(AbstractDrawer):
         self.test_string = ''
         self.cursor = turtle.RawPen(self.this_canvas)
         self.cursor.speed(1)
+        self.penIsDown = True
 
     # pen_num should be int
     def select_pen(self, pen_num):
@@ -24,11 +25,11 @@ class Drawer(AbstractDrawer):
         print(f'Selected pen {pen_num}')
 
     def pen_down(self):
-        self.cursor.pendown()
+        self.penIsDown = True
         print('pen down')
 
     def pen_up(self):
-        self.cursor.penup()
+        self.penIsDown = False
         print('pen up')
 
         # along should be int
