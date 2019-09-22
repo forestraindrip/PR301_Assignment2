@@ -24,3 +24,17 @@ The program is fully functional now
 ## Tasks for tester
 - Write unit tests
 - Evaluate of coder's codes
+
+## doctest example
+in parser_jerry.py
+        
+    """
+    >>> import tkinter
+    >>> canvas = tkinter.Canvas(tkinter.Tk(), width=500, height=500)
+    >>> from drawer_kieran import DrawerKieran
+    >>> d = DrawerKieran(canvas)
+    >>> d.can_draw = True
+    >>> p = ParserJerry(d)
+    >>> p.parse(["X 100"])
+    GOTO X=100
+    """
