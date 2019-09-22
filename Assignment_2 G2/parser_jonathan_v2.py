@@ -1,9 +1,9 @@
 # created by Kieran Jerry Jonathon
-from TIGr import AbstractParser
+from tigr import AbstractParser
 import re
 
 
-class Parser(AbstractParser):
+class ParserJonathon(AbstractParser):
     def __init__(self, drawer):
         super().__init__(drawer)
         self.commandlist = {

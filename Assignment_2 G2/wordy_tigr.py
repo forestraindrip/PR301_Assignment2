@@ -1,4 +1,4 @@
-from TIGr import AbstractDrawer, AbstractParser, AbstractSourceReader
+from tigr import AbstractDrawer, AbstractParser, AbstractSourceReader
 
 """These implementations should be replaced,
 by more flexible, portable and extensible solutions.
@@ -36,6 +36,7 @@ class Parser(AbstractParser):
         self.source = raw_source
         for line in self.source:
             self.command = line[0]
+            # noinspection PyBroadException
             try:
                 self.data = int(line[2])
             except:

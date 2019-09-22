@@ -1,21 +1,21 @@
 # created by Kieran Jerry Jonathon
-from TIGr import AbstractParser
+from tigr import AbstractParser
 import re
-from DrawerKieran import Drawer
+from drawer_kieran import DrawerKieran
 import doctest
 
 
-class Parser(AbstractParser):
+class ParserJerry(AbstractParser):
     def parse(self, raw_source):
         """
-        >>> d = Drawer()
+        >>> import tkinter
+        >>> canvas = tkinter.Canvas(tkinter.Tk(), width=500, height=500)
+        >>> from drawer_kieran import DrawerKieran
+        >>> d = DrawerKieran(canvas)
         >>> d.can_draw = True
-        >>> p = Parser(d)
-        >>> p.parse('X 100')
+        >>> p = ParserJerry(d)
+        >>> p.parse(["X 100"])
         GOTO X=100
-        """
-        """hard coded parsing like this is a Bad Thing!
-            It is inflexible and has no error checking
         """
         self.source = raw_source
         if raw_source is not '':

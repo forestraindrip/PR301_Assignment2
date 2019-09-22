@@ -1,15 +1,15 @@
 # Works by KC and Jack
-import MyEnums
-from TIGr import AbstractDrawer
+import my_enums
+from tigr import AbstractDrawer
 
 
-class Drawer(AbstractDrawer):
+class DrawerJack(AbstractDrawer):
     config = open('config.txt', "r+").read().splitlines()
     if config[2] == 'FrontEndKieran':
-        from FrontEndKieran import TkinterInterface
+        from front_end_kieran import TkinterInterface
         this_canvas = TkinterInterface.canvas
     elif config[2] == 'FrontEndJerry':
-        from FrontEndJerry import GuiInterface
+        from front_end_jerry import GuiInterface
         this_canvas = GuiInterface.canvas
 
     def __init__(self):
@@ -22,7 +22,7 @@ class Drawer(AbstractDrawer):
         self.penIsDown = False
 
     def select_pen(self, pen_num):
-        self.colour = MyEnums.Pen.colours[pen_num]
+        self.colour = my_enums.Pen.colours[pen_num]
         print(f'Selected pen {pen_num}')
 
     def pen_down(self):

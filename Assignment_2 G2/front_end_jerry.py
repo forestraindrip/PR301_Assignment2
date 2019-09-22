@@ -11,10 +11,10 @@ class GuiInterface:
     canvas = tkinter.Canvas(master, bg='white', width=500, height=500)
     config = open('config.txt', "r+").read().splitlines()
 
-    def __init__(self, SourceReader):
+    def __init__(self, source_reader):
         self.canvas.pack(side='bottom', fill='x', expand='yes')
         self.init_widgets()
-        self.SourceReader = SourceReader
+        self.source_reader = source_reader
 
     def init_widgets(self):
         self.master.title('TkinterGUI')
@@ -61,7 +61,7 @@ class GuiInterface:
 
     def draw(self):
         # print(self.text.get(1.0, "end-1c"))
-        self.SourceReader.parser.parse(self.master.text.get(1.0, "end-1c"))
+        self.source_reader.parser.parse(self.master.text.get(1.0, "end-1c"))
 
     def restart_program(self):
         """Restarts the current program.

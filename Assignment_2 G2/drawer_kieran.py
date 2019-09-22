@@ -1,19 +1,19 @@
 # created by Kieran Jerry Jonathon
 import math
 
-import MyEnums
-from TIGr import AbstractDrawer
+import my_enums
+from tigr import AbstractDrawer
 
 
-class Drawer(AbstractDrawer):
+class DrawerKieran(AbstractDrawer):
     x_pos = 0
     y_pos = 0
     config = open('config.txt', "r+").read().splitlines()
     if config[2] == 'FrontEndKieran':
-        from FrontEndKieran import TkinterInterface
+        from front_end_kieran import TkinterInterface
         this_canvas = TkinterInterface.canvas
     elif config[2] == 'FrontEndJerry':
-        from FrontEndJerry import GuiInterface
+        from front_end_jerry import GuiInterface
         this_canvas = GuiInterface.canvas
 
     def __init__(self):
@@ -22,7 +22,7 @@ class Drawer(AbstractDrawer):
         self.can_draw = True
 
     def select_pen(self, pen_num):
-        self.colour = MyEnums.Pen.colours[pen_num]
+        self.colour = my_enums.Pen.colours[pen_num]
         print(f'Selected pen {pen_num}')
 
     def pen_down(self):
@@ -42,6 +42,7 @@ class Drawer(AbstractDrawer):
         print(f'GOTO X={down}')
 
     def draw_line(self, direction, distance):
+        print(f'drawing line of length {distance} at {direction} degrees')
         if self.can_draw:
             if direction == 0:
                 direction = 360
@@ -54,4 +55,3 @@ class Drawer(AbstractDrawer):
                                          fill=self.colour)
             self.x_pos += new_x
             self.y_pos += new_y
-            print(f'drawing line of length {distance} at {direction} degrees')

@@ -1,9 +1,9 @@
 # Works by KC and Jack
-from TIGr import AbstractParser, AbstractSourceReader
+from tigr import AbstractParser, AbstractSourceReader
 import re
 
 
-class Parser(AbstractParser):
+class ParserDang(AbstractParser):
 
     def parse(self, raw_source):
         self.source = raw_source.splitlines()
