@@ -12,7 +12,8 @@ class DrawerJack(AbstractDrawer):
         from front_end_jerry import GuiInterface
         this_canvas = GuiInterface.canvas
 
-    def __init__(self):
+    def __init__(self, canvas):
+        super().__init__(canvas)
         self.colour = ''
         self.test_string = ''
         self.src_x = 0

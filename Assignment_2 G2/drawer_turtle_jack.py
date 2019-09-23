@@ -13,7 +13,8 @@ class DrawerTurtleJack(AbstractDrawer):
         from front_end_jerry import GuiInterface
         this_canvas = GuiInterface.canvas
 
-    def __init__(self, ):
+    def __init__(self, canvas):
+        super().__init__(canvas)
         self.test_string = ''
         self.cursor = turtle.RawPen(self.this_canvas)
         self.cursor.speed(1)

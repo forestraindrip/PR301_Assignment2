@@ -16,7 +16,8 @@ class DrawerKieran(AbstractDrawer):
         from front_end_jerry import GuiInterface
         this_canvas = GuiInterface.canvas
 
-    def __init__(self):
+    def __init__(self, canvas):
+        super().__init__(canvas)
         self.test_string = ''
         self.colour = ''
         self.can_draw = True
@@ -42,8 +43,8 @@ class DrawerKieran(AbstractDrawer):
         print(f'GOTO X={down}')
 
     def draw_line(self, direction, distance):
-        print(f'drawing line of length {distance} at {direction} degrees')
         if self.can_draw:
+            print(f'drawing line of length {distance} at {direction} degrees')
             if direction == 0:
                 direction = 360
             # test a direction angle direction = 30 Angle direction needs to be converted a decimal and divided into
