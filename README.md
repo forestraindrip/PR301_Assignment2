@@ -1,5 +1,4 @@
 # PR301_Assignment2
-**We should not have any major change at this stage.**
 The program is fully functional now
 
 ## Feature list
@@ -28,12 +27,12 @@ The program is fully functional now
 ## doctest example
 in parser_jerry.py
         
-    """
-    >>> import tkinter
-    >>> canvas = tkinter.Canvas(tkinter.Tk(), width=500, height=500)
-    >>> from drawer_kieran import DrawerKieran
-    >>> d = DrawerKieran(canvas)
-    >>> p = ParserJerry(d)
-    >>> p.parse(["X 100"])
-    GOTO X=100
-    """
+        """
+        >>> import tkinter
+        >>> canvas = tkinter.Canvas(tkinter.Tk(), width=500, height=500)
+        >>> import drawer_kieran
+        >>> d = DrawerKieran(canvas)
+        >>> p = ParserJerry(d)
+        >>> p.parse(["X 100"])
+        GOTO X=100
+        """
