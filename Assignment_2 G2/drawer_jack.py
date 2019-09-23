@@ -20,7 +20,7 @@ class DrawerJack(AbstractDrawer):
         self.src_y = 0
         self.des_x = 0
         self.des_y = 0
-        self.penIsDown = True
+        self.penIsDown = False
 
     def select_pen(self, pen_num):
         self.colour = my_enums.Pen.colours[pen_num]
@@ -40,7 +40,7 @@ class DrawerJack(AbstractDrawer):
 
     def go_down(self, down):
         self.src_y = down
-        print(f'GOTO X={down}')
+        print(f'GOTO Y={down}')
 
     def draw_line(self, direction, distance):
         if direction == 0:

@@ -1,7 +1,7 @@
-D 0 # pen down
 P 2 # select pen 2
 X 250 # go to 250 along
 Y 250 # go to 250 down
+D 0 # pen down
 W 200 # draw west 2cm
 N 100 # then north 1cm
 E 200 # then east 2cm

@@ -20,7 +20,7 @@ class DrawerKieran(AbstractDrawer):
         super().__init__(canvas)
         self.test_string = ''
         self.colour = ''
-        self.can_draw = True
+        self.can_draw = False
 
     def select_pen(self, pen_num):
         self.colour = my_enums.Pen.colours[pen_num]
@@ -40,7 +40,7 @@ class DrawerKieran(AbstractDrawer):
 
     def go_down(self, down):
         self.y_pos = down
-        print(f'GOTO X={down}')
+        print(f'GOTO Y={down}')
 
     def draw_line(self, direction, distance):
         if self.can_draw:
